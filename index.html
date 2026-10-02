@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sireesha Gandlapathi | Power BI & Azure Data Engineer</title>
+<meta name="description" content="Power BI dashboards and automated Azure data pipelines for small businesses. 4 years of experience, 5 Microsoft and AWS certifications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#0e2a47;--mute:#51657b;--line:#d9e1ea;--acc:#1f6feb;--hl:#f2b705;--soft:#e8f0fd;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1623;--card:#13233a;--ink:#eaf1f9;--mute:#9fb2c7;--line:#243a56;--acc:#5b9dff;--soft:#172c48}}
+:root[data-theme="dark"]{--bg:#0b1623;--card:#13233a;--ink:#eaf1f9;--mute:#9fb2c7;--line:#243a56;--acc:#5b9dff;--soft:#172c48}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;line-height:1.15;margin:0}
+a{color:var(--acc)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:2rem;margin-bottom:8px}
+.sub{color:var(--mute);max-width:40em;margin:0 0 28px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:12px;flex-wrap:wrap}
+nav b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.15rem}
+nav div a{margin-left:18px;text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}
+.hero{padding:30px 0 48px}
+h1{font-size:clamp(2.2rem,6vw,3.5rem);max-width:14em;margin-bottom:16px}
+.lead{font-size:1.2rem;color:var(--mute);max-width:36em;margin:0 0 24px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:8px;font-weight:600;text-decoration:none;background:var(--acc);color:#fff}
+.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.note{font-size:.95rem;color:var(--mute);margin-top:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:34px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.stats b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.8rem;color:var(--acc)}
+.stats span{color:var(--mute);font-size:.95rem}
+.flow{margin-top:26px;overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.flow svg{min-width:640px;width:100%;height:auto;display:block}
+.flow text{font-family:"Source Sans 3",sans-serif;font-size:14px;fill:var(--ink)}
+.flow svg{min-width:680px}
+.flow .b{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;font-weight:700}
+.flow .s{font-size:13.5px}
+.flow .t0{fill:var(--ink)}.flow .n0{fill:none;stroke:var(--mute);stroke-width:2;stroke-dasharray:6 4}
+.flow .td{fill:#0e2a47}.flow .tw{fill:#fff}
+.flow .ln{stroke:var(--mute);stroke-width:2.5}.flow .ar{fill:var(--mute)}
+.flow .cap text{fill:var(--mute);font-size:14px}
+form.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;margin-top:28px;display:grid;gap:14px}
+form.q h3{font-size:1.4rem}
+form.q label{font-weight:600;font-size:.95rem;display:grid;gap:6px}
+form.q input,form.q select,form.q textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:11px 12px;width:100%}
+form.q input:focus,form.q select:focus,form.q textarea:focus{outline:3px solid var(--hl);border-color:var(--acc)}
+form.q .row{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+form.q button{justify-self:start;border:0;cursor:pointer;font:inherit;font-weight:600;background:var(--acc);color:#fff;padding:13px 26px;border-radius:8px}
+#fmsg{margin:0;color:var(--mute);font-size:.95rem}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+.card h3{font-size:1.25rem;margin-bottom:6px}
+.card.pop{border:2px solid var(--acc)}
+.badge{display:inline-block;background:var(--hl);color:#0e2a47;font-size:.8rem;font-weight:600;padding:2px 10px;border-radius:99px;margin-bottom:8px}
+.price{font-family:"Bricolage Grotesque",sans-serif;font-size:1.9rem;color:var(--acc);margin:6px 0 2px}
+.price small{font-size:.95rem;color:var(--mute);font-family:"Source Sans 3",sans-serif}
+.card ul{margin:12px 0 0;padding-left:20px;color:var(--mute)}
+.card li{margin-bottom:4px}
+.steps{counter-reset:s;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.steps div{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.steps div:before{content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;font-weight:600;margin-bottom:8px}
+.steps b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.1rem}
+.steps p{margin:4px 0 0;color:var(--mute);font-size:.97rem}
+.case dt{font-weight:600;margin-top:12px}
+.case dd{margin:2px 0 0;color:var(--mute)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags span{font-size:.85rem;background:var(--soft);border-radius:99px;padding:2px 11px}
+.who{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.who div{background:var(--soft);border-radius:10px;padding:16px}
+.who b{display:block}
+.who span{color:var(--mute);font-size:.96rem}
+.certs{list-style:none;padding:0;margin:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.certs li{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--hl);border-radius:8px;padding:12px 16px}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 0;color:var(--mute)}
+.cta{background:var(--ink);color:#fff;border-radius:16px;padding:36px;text-align:center}
+.cta h2{color:#fff}.cta p{color:#c9d6e5;max-width:34em;margin:8px auto 22px}
+.cta .btn{background:var(--hl);color:#0e2a47}
+.cta .btn.alt{background:transparent;color:#fff;border-color:#fff}
+.cta .btns{justify-content:center}
+footer{padding:28px 0;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>Sireesha Gandlapathi</b><div><a href="#services">Services</a><a href="#work">Work</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div></nav>
+</div>
+
+<header class="hero"><div class="wrap">
+<h1>Dashboards and data pipelines that save you hours every week.</h1>
+<p class="lead">I'm a Power BI and Azure data engineer with 4 years of experience at IBM. I turn your Excel sheets, SQL tables and scattered files into one clear dashboard that updates by itself.</p>
+<div class="btns">
+<a class="btn" href="mailto:sireesha.freelancing@gmail.com?subject=Free%20data%20review">Get a free 15-min data review</a>
+<a class="btn alt" href="#work">See my projects</a>
+</div>
+<p class="note">Intro prices for my first 5 clients. Reply within one working day.</p>
+<div class="stats">
+<div><b>4 yrs</b><span>data engineering at IBM</span></div>
+<div><b>10+</b><span>Power BI dashboards built</span></div>
+<div><b>5</b><span>Microsoft and AWS certifications</span></div>
+<div><b>9.2</b><span>CGPA, B.Tech in ECE</span></div>
+</div>
+<div class="flow" role="img" aria-label="Data flow from your data through Bronze, Silver and Gold layers to Power BI">
+<svg viewBox="0 0 800 170" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9z" class="ar"/></marker></defs>
+<g class="ln" marker-end="url(#a)"><line x1="136" y1="65" x2="162" y2="65"/><line x1="282" y1="65" x2="308" y2="65"/><line x1="428" y1="65" x2="454" y2="65"/><line x1="574" y1="65" x2="600" y2="65"/></g>
+<rect class="n0" x="16" y="25" width="120" height="80" rx="12"/>
+<text class="t0 b" x="76" y="58" text-anchor="middle">Your data</text><text class="t0 s" x="76" y="80" text-anchor="middle">Excel, SQL, APIs</text>
+<rect x="166" y="25" width="116" height="80" rx="12" fill="#d08a4a"/>
+<text class="td b" x="224" y="58" text-anchor="middle">Bronze</text><text class="td s" x="224" y="80" text-anchor="middle">raw data in</text>
+<rect x="312" y="25" width="116" height="80" rx="12" fill="#c3ccd8"/>
+<text class="td b" x="370" y="58" text-anchor="middle">Silver</text><text class="td s" x="370" y="80" text-anchor="middle">cleaned, checked</text>
+<rect x="458" y="25" width="116" height="80" rx="12" fill="#f2b705"/>
+<text class="td b" x="516" y="58" text-anchor="middle">Gold</text><text class="td s" x="516" y="80" text-anchor="middle">KPIs ready</text>
+<rect x="604" y="25" width="180" height="80" rx="12" fill="#1f6feb"/>
+<text class="tw b" x="694" y="58" text-anchor="middle">Power BI</text><text class="tw s" x="694" y="80" text-anchor="middle">dashboard you use</text>
+<g class="cap"><text x="76" y="138" text-anchor="middle">Your files</text><text x="224" y="138" text-anchor="middle">Ingest</text><text x="370" y="138" text-anchor="middle">Clean and map</text><text x="516" y="138" text-anchor="middle">Aggregate</text><text x="694" y="138" text-anchor="middle">Decide faster</text></g>
+</svg></div>
+</div></header>
+
+<section><div class="wrap">
+<h2>Who I help</h2>
+<p class="sub">Small teams that run on spreadsheets and want clear numbers without hiring a full data team.</p>
+<div class="who">
+<div><b>Online stores and retail</b><span>Sales, best sellers, stock and returns in one view.</span></div>
+<div><b>Restaurants and local shops</b><span>Daily revenue, peak hours and item performance.</span></div>
+<div><b>Startups and agencies</b><span>Marketing, finance and client KPIs from many sources.</span></div>
+<div><b>Clinics and service teams</b><span>Appointments, workload and monthly reports without manual copying.</span></div>
+</div></div></section>
+
+<section id="services"><div class="wrap">
+<h2>Services and pricing</h2>
+<p class="sub">Fixed prices so you know the cost before we start. Intro rates apply to my first 5 clients, and final price depends on how many data sources and pages you need.</p>
+<div class="grid">
+<div class="card"><h3>Starter dashboard</h3><div class="price">$60 <small>one-time</small></div>
+<p>A one-page Power BI dashboard from one clean Excel or CSV file.</p>
+<ul><li>Up to 5 charts and 3 filters</li><li>Basic data cleanup</li><li>1 round of changes</li><li>Delivery in 3 days</li></ul></div>
+<div class="card pop"><span class="badge">Most popular</span><h3>Business dashboard</h3><div class="price">$150 <small>one-time</small></div>
+<p>A multi-page dashboard from Excel, SQL or several files, built around your KPIs.</p>
+<ul><li>Up to 3 pages and 2 data sources</li><li>Data model and DAX measures</li><li>Drill-through filters</li><li>2 rounds of changes and a video walkthrough</li><li>Delivery in 5 to 7 days</li></ul></div>
+<div class="card"><h3>Automated pipeline</h3><div class="price">from $250 <small>one-time</small></div>
+<p>Azure Data Factory pipeline that loads and cleans your data on a schedule.</p>
+<ul><li>Up to 2 sources (SQL, APIs, files)</li><li>Scheduled refresh and alerts</li><li>Short documentation</li><li>Delivery in 7 to 10 days</li></ul></div>
+<div class="card"><h3>Monthly support</h3><div class="price">$100 <small>per month</small></div>
+<p>Keep your dashboards and pipelines running while you focus on the business.</p>
+<ul><li>Refresh and failure monitoring</li><li>Up to 3 small changes a month</li><li>Replies within one working day</li></ul></div>
+</div>
+<p class="note">Not sure which one fits? Book the free review and I'll recommend the smallest option that solves your problem. Payment: 50% to start, 50% on delivery.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2>How we work together</h2>
+<p class="sub">A simple process with no surprises.</p>
+<div class="steps">
+<div><b>Free review</b><p>15-minute call. You show me your reports and tell me what you need.</p></div>
+<div><b>Clear quote</b><p>You get scope, price and delivery date in writing within a day.</p></div>
+<div><b>Build and preview</b><p>I clean the data, build the dashboard, and share a draft for feedback.</p></div>
+<div><b>Handover</b><p>Final files, a short video walkthrough and support for questions.</p></div>
+</div></div></section>
+
+<section id="work"><div class="wrap">
+<h2>Selected work</h2>
+<p class="sub">Built with public or sample data. I never show employer or client data.</p>
+<div class="grid">
+<article class="card case"><h3>Pizza Sales Dashboard</h3>
+<dl><dt>Business question</dt><dd>Which items sell best, when are the busy hours, and how do regions compare?</dd>
+<dt>What I did</dt><dd>Cleaned and queried the data in SQL, built the Power BI model and added drill-through filters for regional performance.</dd>
+<dt>What you get</dt><dd>One interactive dashboard that answers "what sells, when and where" and replaces manual weekly reports.</dd></dl>
+<div class="tags"><span>Power BI</span><span>SQL</span><span>DAX</span></div>
+<p><a href="https://github.com/siri70931/Pizza_Sales_Dashboard">View project</a></p></article>
+<article class="card case"><h3>Azure data platform</h3>
+<dl><dt>Business question</dt><dd>How do you turn raw data from many sources into numbers you can trust?</dd>
+<dt>What I did</dt><dd>Designed an end-to-end solution with Data Factory, Synapse Analytics and Data Lake Storage Gen2 using Bronze, Silver and Gold layers.</dd>
+<dt>What you get</dt><dd>Clean, structured data that refreshes on schedule and feeds your reports.</dd></dl>
+<div class="tags"><span>Azure Data Factory</span><span>Synapse</span><span>ADLS Gen2</span></div>
+<p><a href="https://github.com/siri70931/Azure_Data_Engineer_Project">View project</a></p></article>
+<article class="card case"><h3>Microsoft Fabric pipeline</h3>
+<dl><dt>Business question</dt><dd>Can data prep and reporting live in one modern Microsoft platform?</dd>
+<dt>What I did</dt><dd>Built a pipeline with Lakehouse, Notebooks and Dataflows Gen2 to orchestrate data transformation for reporting.</dd>
+<dt>What you get</dt><dd>A repeatable path from raw files to reporting tables.</dd></dl>
+<div class="tags"><span>Microsoft Fabric</span><span>Lakehouse</span><span>PySpark</span></div>
+<p><a href="https://github.com/siri70931/Azure_DataEngineering_Fabric_Project">View project</a></p></article>
+<article class="card case"><h3>Fitness Tracker Analysis</h3>
+<dl><dt>Business question</dt><dd>What patterns show up in activity, calorie burn and goal achievement?</dd>
+<dt>What I did</dt><dd>Wrote advanced SQL with window functions and CTEs to analyze user behavior.</dd>
+<dt>What you get</dt><dd>Clear insights that help you decide what to track and improve.</dd></dl>
+<div class="tags"><span>SQL</span><span>Window functions</span><span>CTEs</span></div>
+<p><a href="https://github.com/siri70931/SQL_Fitness_Track_Analysis">View project</a></p></article>
+</div></div></section>
+
+<section><div class="wrap">
+<h2>Why work with me</h2>
+<p class="sub">Real company experience, now available to smaller teams.</p>
+<div class="grid">
+<div class="card"><h3>Trusted numbers</h3><p>I run quality checks, reconciliation and discrepancy analysis before data reaches a dashboard, so your KPIs match your source.</p></div>
+<div class="card"><h3>Built to last</h3><p>Incremental loads, change data capture, alerts and retry logic keep pipelines running without daily babysitting.</p></div>
+<div class="card"><h3>Proven skills</h3><p>Power BI, SQL, Python, PySpark, Azure Data Factory, Synapse, Databricks and Microsoft Fabric, backed by certifications.</p></div>
+</div>
+<h2 style="margin-top:40px">Certifications</h2>
+<ul class="certs" style="margin-top:14px">
+<li>Microsoft Certified: Power BI Data Analyst Associate</li>
+<li>Microsoft Certified: Fabric Data Engineer Associate</li>
+<li>Microsoft Certified: Azure Fundamentals</li>
+<li>Microsoft Certified: Azure AI Fundamentals</li>
+<li>AWS Certified Cloud Practitioner</li>
+</ul></div></section>
+
+<section id="faq"><div class="wrap">
+<h2>Common questions</h2>
+<p class="sub">&nbsp;</p>
+<details><summary>What do you need from me to start?</summary><p>A sample of your data (or access to a copy), a list of the questions you want answered, and any report you use today.</p></details>
+<details><summary>Is my data safe?</summary><p>I work only with the data you share, use it only for your project, and can sign an NDA before we start.</p></details>
+<details><summary>I only have Excel files. Is that enough?</summary><p>Yes. Most of my starter dashboards begin with Excel or CSV files.</p></details>
+<details><summary>Do I need a Power BI license?</summary><p>You can view dashboards in Power BI Desktop for free. Sharing online with your team needs Power BI Pro, and I'll tell you what fits your case.</p></details>
+<details><summary>What if I want changes after delivery?</summary><p>Each package includes revision rounds. After that, small changes are available through monthly support or a quick one-off quote.</p></details>
+<details><summary>How do I pay?</summary><p>50% to start and 50% on delivery, via bank transfer, Wise or PayPal.</p></details>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<div class="cta">
+<h2>Tell me which report you hate updating</h2>
+<p>Book a free 15-minute data review. I'll tell you what can be automated and what it would cost, with no obligation.</p>
+<div class="btns">
+<a class="btn" href="mailto:sireesha.freelancing@gmail.com?subject=Free%20data%20review">Email me</a>
+<a class="btn alt" href="https://www.linkedin.com/in/sireesha-gandlapathi-38a972204/">LinkedIn</a>
+<a class="btn alt" href="https://github.com/siri70931">GitHub</a>
+</div>
+<p style="margin:18px 0 0">sireesha.freelancing@gmail.com &nbsp;|&nbsp; +91 70931 85600 &nbsp;|&nbsp; Bangalore, India</p>
+</div>
+<form class="q" id="qf">
+<h3>Send me a query</h3>
+<p class="sub" style="margin:0">Describe what you need and I'll reply within one working day.</p>
+<div class="row">
+<label>Your name<input name="name" required autocomplete="name"></label>
+<label>Your email<input name="email" type="email" required autocomplete="email"></label>
+</div>
+<label>What do you need?<select name="service"><option>Starter dashboard</option><option>Business dashboard</option><option>Automated pipeline</option><option>Monthly support</option><option>Not sure yet</option></select></label>
+<label>Your message<textarea name="msg" rows="5" required placeholder="Tell me about your data and the report you want."></textarea></label>
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+<button type="submit">Send query</button>
+<p id="fmsg" role="status"></p>
+</form>
+<script>
+document.getElementById('qf').addEventListener('submit',function(e){
+e.preventDefault();
+var f=e.target,m=document.getElementById('fmsg'),b=f.querySelector('button');
+if(f.botcheck.checked){return;}
+b.disabled=true;b.textContent='Sending...';m.textContent='';
+fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+body:JSON.stringify({access_key:'bd448e9f-c32b-491e-966b-96beb3801630',subject:'New query from '+f.name.value+' ('+f.service.value+')',from_name:'Portfolio website',name:f.name.value,email:f.email.value,service:f.service.value,message:f.msg.value})})
+.then(function(r){return r.json();})
+.then(function(d){
+if(d.success){f.reset();m.textContent='Thank you! Your message was sent. I will reply within one working day.';}
+else{throw new Error('fail');}})
+.catch(function(){m.innerHTML='Could not send. Please email me at <a href="mailto:sireesha.freelancing@gmail.com">sireesha.freelancing@gmail.com</a>.';})
+.finally(function(){b.disabled=false;b.textContent='Send query';});
+});
+</script>
+</div></section>
+<footer><div class="wrap">Sireesha Gandlapathi, Power BI and Azure Data Engineer</div></footer>
+</body>
+</html>
